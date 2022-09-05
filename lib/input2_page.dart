@@ -17,7 +17,7 @@ class _InputpageState extends State<Inputpage> {
         title: Text(
           'BMICalculater',
         ),
-        centerTitle: true,
+        // centerTitle: true,
       ),
       body: Center(
         child: Text(
