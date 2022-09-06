@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
 
@@ -25,25 +25,25 @@ class _InputpageState extends State<Inputpage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReusableCard(),
+                  child: ReusableCard(Color(0xff1f1f33)),
                 ),
                 Expanded(
-                  child: ReusableCard(),
+                  child: ReusableCard(Color(0xff1f1f33)),
                 ),
               ],
             ),
           ),
           Expanded(
-            child: ReusableCard(),
+            child: ReusableCard(Color(0xff1f1f33)),
           ),
           Expanded(
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReusableCard(),
+                  child: ReusableCard(Color(0xff1f1f33)),
                 ),
                 Expanded(
-                  child: ReusableCard(),
+                  child: ReusableCard(Color(0xff1f1f33)),
                 ),
               ],
             ),
@@ -55,17 +55,18 @@ class _InputpageState extends State<Inputpage> {
 }
 
 class ReusableCard extends StatelessWidget {
-  const ReusableCard({
-    Key? key,
-  }) : super(key: key);
+  ReusableCard(this.colour);
+  final Color colour;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(15.0),
+      color: colour,
       decoration: BoxDecoration(
         color: Color(0xff1f1f33),
         // color: Colors.red,
+
         borderRadius: BorderRadius.circular(10.0),
       ),
     );
