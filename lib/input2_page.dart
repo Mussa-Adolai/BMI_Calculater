@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+const bottomConainerHight = 80.0;
+
 class Inputpage extends StatefulWidget {
   const Inputpage({Key? key}) : super(key: key);
 
@@ -47,6 +49,12 @@ class _InputpageState extends State<Inputpage> {
                 ),
               ],
             ),
+          ),
+          Container(
+            color: Color(0xffEB1555),
+            margin: EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: bottomConainerHight,
           ),
         ],
       ),
