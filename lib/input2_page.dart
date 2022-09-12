@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, prefer_const_constructors_in_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, prefer_const_constructors_in_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const bottomConainerHight = 80.0;
 const activeCardColor = Color(0xff1f1f33);
@@ -29,10 +30,15 @@ class _InputpageState extends State<Inputpage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: ReusableCard(activeCardColor),
+                  child: ReusableCard(
+                    activeCardColor,
+                    Column(
+                      children: <Widget>[],
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child: ReusableCard(activeCardColor),
+                  child: ReusableCard(activeCardColor, cardChild),
                 ),
               ],
             ),
@@ -65,18 +71,19 @@ class _InputpageState extends State<Inputpage> {
 }
 
 class ReusableCard extends StatelessWidget {
-  ReusableCard(this.colour);
+  ReusableCard(this.colour, this.cardChild); // Its Riquired !
   final Color colour;
+  final Widget cardChild;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      child: cardChild,
       margin: EdgeInsets.all(15.0),
       color: colour,
       decoration: BoxDecoration(
         color: Color(0xff1f1f33),
         // color: Colors.red,
-
         borderRadius: BorderRadius.circular(10.0),
       ),
     );
