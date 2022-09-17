@@ -23,29 +23,7 @@ class Inputpage extends StatefulWidget {
 }
 
 class _InputpageState extends State<Inputpage> {
-  // Color maleCardColr = inactiveCardColor;
-  // Color femaleCardColr = inactiveCardColor;
   Gender? genderSelected;
-
-  // void updateColor(Gender genderSelected) {
-  //   // if (genderSelected == Gender.male) {
-  //   //   if (maleCardColr == inactiveCardColor) {
-  //   //     maleCardColr = activeCardColor;
-  //   //     femaleCardColr = inactiveCardColor;
-  //   //   } else {
-  //   //     maleCardColr = inactiveCardColor;
-  //   //   }
-  //   // }
-  //
-  //   if (genderSelected == Gender.femalel) {
-  //     if (femaleCardColr == inactiveCardColor) {
-  //       femaleCardColr = activeCardColor;
-  //       maleCardColr = inactiveCardColor;
-  //     } else {
-  //       femaleCardColr = inactiveCardColor;
-  //     }
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +70,7 @@ class _InputpageState extends State<Inputpage> {
           ),
           Expanded(
             child: ReusableCard(
-              onPress: () {},
+              //  onPress: () {},
               colour: activeCardColor,
               // cardChild:,
             ),
