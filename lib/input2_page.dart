@@ -23,27 +23,29 @@ class Inputpage extends StatefulWidget {
 }
 
 class _InputpageState extends State<Inputpage> {
-  Color maleCardColr = inactiveCardColor;
-  Color femaleCardColr = inactiveCardColor;
+  // Color maleCardColr = inactiveCardColor;
+  // Color femaleCardColr = inactiveCardColor;
+  Gender? genderSelected;
 
-  void updateColor(Gender genderSelected) {
-    if (genderSelected == Gender.male) {
-      if (maleCardColr == inactiveCardColor) {
-        maleCardColr = activeCardColor;
-        femaleCardColr = inactiveCardColor;
-      } else {
-        maleCardColr = inactiveCardColor;
-      }
-    }
-    if (genderSelected == Gender.femalel) {
-      if (femaleCardColr == inactiveCardColor) {
-        femaleCardColr = activeCardColor;
-        maleCardColr = inactiveCardColor;
-      } else {
-        femaleCardColr = inactiveCardColor;
-      }
-    }
-  }
+  // void updateColor(Gender genderSelected) {
+  //   // if (genderSelected == Gender.male) {
+  //   //   if (maleCardColr == inactiveCardColor) {
+  //   //     maleCardColr = activeCardColor;
+  //   //     femaleCardColr = inactiveCardColor;
+  //   //   } else {
+  //   //     maleCardColr = inactiveCardColor;
+  //   //   }
+  //   // }
+  //
+  //   if (genderSelected == Gender.femalel) {
+  //     if (femaleCardColr == inactiveCardColor) {
+  //       femaleCardColr = activeCardColor;
+  //       maleCardColr = inactiveCardColor;
+  //     } else {
+  //       femaleCardColr = inactiveCardColor;
+  //     }
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -60,30 +62,29 @@ class _InputpageState extends State<Inputpage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableCard(
+                    onPress: () {
                       setState(() {
-                        updateColor(Gender.male);
+                        genderSelected = Gender.male;
                       });
                     },
-                    child: ReusableCard(
-                      colour: maleCardColr,
-                      cardChild: ReusableColumn(FontAwesomeIcons.mars, 'Male'),
-                    ),
+                    colour: genderSelected == Gender.male
+                        ? activeCardColor
+                        : inactiveCardColor,
+                    cardChild: ReusableColumn(FontAwesomeIcons.mars, 'Male'),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableCard(
+                    onPress: () {
                       setState(() {
-                        updateColor(Gender.femalel);
+                        genderSelected = Gender.femalel;
                       });
                     },
-                    child: ReusableCard(
-                      colour: femaleCardColr,
-                      cardChild:
-                          ReusableColumn(FontAwesomeIcons.venus, 'Female'),
-                    ),
+                    colour: genderSelected == Gender.femalel
+                        ? activeCardColor
+                        : inactiveCardColor,
+                    cardChild: ReusableColumn(FontAwesomeIcons.venus, 'Female'),
                   ),
                 ),
               ],
@@ -91,6 +92,7 @@ class _InputpageState extends State<Inputpage> {
           ),
           Expanded(
             child: ReusableCard(
+              onPress: () {},
               colour: activeCardColor,
               // cardChild:,
             ),
@@ -100,12 +102,14 @@ class _InputpageState extends State<Inputpage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
+                    onPress: () {},
                     colour: activeCardColor,
                     //  cardChild: ,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
+                    onPress: () {},
                     colour: activeCardColor,
                     // cardChild:,
                   ),
