@@ -4,11 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
-
-const bottomConainerHight = 80.0;
-const activeCardColor = Color(0xff1f1f33);
-const inactiveCardColor = Color(0xff111328);
-const bottomBarColor = Color(0xffEB1555);
+import 'constants.dart';
 
 enum Gender {
   male,
@@ -24,6 +20,7 @@ class Inputpage extends StatefulWidget {
 
 class _InputpageState extends State<Inputpage> {
   Gender? genderSelected;
+  int hight = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +32,7 @@ class _InputpageState extends State<Inputpage> {
         centerTitle: true,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
             child: Row(
@@ -47,8 +45,8 @@ class _InputpageState extends State<Inputpage> {
                       });
                     },
                     colour: genderSelected == Gender.male
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: ReusableColumn(FontAwesomeIcons.mars, 'Male'),
                   ),
                 ),
@@ -60,8 +58,8 @@ class _InputpageState extends State<Inputpage> {
                       });
                     },
                     colour: genderSelected == Gender.femalel
-                        ? activeCardColor
-                        : inactiveCardColor,
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: ReusableColumn(FontAwesomeIcons.venus, 'Female'),
                   ),
                 ),
@@ -70,9 +68,55 @@ class _InputpageState extends State<Inputpage> {
           ),
           Expanded(
             child: ReusableCard(
-              //  onPress: () {},
-              colour: activeCardColor,
-              // cardChild:,
+              onPress: () {},
+              colour: kActiveCardColor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Height",
+                    style: kLableTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: <Widget>[
+                      Text(
+                        hight.toString(),
+                        style: kFontStyle,
+                      ),
+                      Text(
+                        "cm",
+                        style: kLableTextStyle,
+                      ),
+                    ],
+                  ),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      activeTrackColor: Colors.white,
+                      inactiveTrackColor: Colors.grey,
+                      thumbColor: Color(0xffEB1555),
+                      overlayColor: Color(0x29EB1555),
+                      thumbShape:
+                          RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                      overlayShape:
+                          RoundSliderOverlayShape(overlayRadius: 30.0),
+                    ),
+                    child: Slider(
+                      min: 100.0,
+                      max: 220.0,
+                      value: hight.toDouble(),
+                      onChanged: (double newValue) {
+                        setState(() {
+                          hight = newValue.round();
+                          // newValue is double but hight is int, so make it round to change to nearst int
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
@@ -81,14 +125,14 @@ class _InputpageState extends State<Inputpage> {
                 Expanded(
                   child: ReusableCard(
                     onPress: () {},
-                    colour: activeCardColor,
+                    colour: kActiveCardColor,
                     //  cardChild: ,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     onPress: () {},
-                    colour: activeCardColor,
+                    colour: kActiveCardColor,
                     // cardChild:,
                   ),
                 ),
@@ -96,10 +140,10 @@ class _InputpageState extends State<Inputpage> {
             ),
           ),
           Container(
-            color: bottomBarColor,
+            color: kBottomContainerColor,
             margin: EdgeInsets.only(top: 10.1),
             width: double.infinity,
-            height: bottomConainerHight,
+            height: kBottomContainerHight,
             child: Center(
               child: Text(
                 'CALCULATE',

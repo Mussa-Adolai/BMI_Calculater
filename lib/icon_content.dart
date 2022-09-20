@@ -2,10 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-const lableTextStyle = TextStyle(
-  fontSize: 18.0,
-  color: Color(0xff8D8E98),
-);
+import 'constants.dart';
 
 class ReusableColumn extends StatelessWidget {
   ReusableColumn(this.icon, this.textCard);
@@ -26,7 +23,7 @@ class ReusableColumn extends StatelessWidget {
         ),
         Text(
           textCard,
-          style: lableTextStyle,
+          style: kLableTextStyle,
         )
       ],
     );
