@@ -9,7 +9,7 @@ const kLableTextStyle = TextStyle(
   color: Color(0xff8D8E98),
 );
 
-const kFontStyle = TextStyle(
+const kNumberTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
 );
