@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
+import 'result_page.dart';
 
 enum Gender {
   male,
@@ -127,9 +128,7 @@ class _InputpageState extends State<Inputpage> {
                 Expanded(
                   child: ReusableCard(
                     onPress: () {
-                      setState(() {
-                        //  weightBtnStatePlus();
-                      });
+                      setState(() {});
                     },
                     colour: kActiveCardColor,
                     cardChild: Column(
@@ -219,16 +218,28 @@ class _InputpageState extends State<Inputpage> {
               ],
             ),
           ),
-          Container(
-            color: kBottomContainerColor,
-            margin: EdgeInsets.only(top: 10.1),
-            width: double.infinity,
-            height: kBottomContainerHight,
-            child: Center(
-              child: Text(
-                'CALCULATE',
-                style: TextStyle(
-                  fontSize: 20.0,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ResultPage();
+                  },
+                ),
+              );
+            },
+            child: Container(
+              color: kBottomContainerColor,
+              margin: EdgeInsets.only(top: 10.1),
+              width: double.infinity,
+              height: kBottomContainerHight,
+              child: Center(
+                child: Text(
+                  'CALCULATE',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
                 ),
               ),
             ),
@@ -240,15 +251,15 @@ class _InputpageState extends State<Inputpage> {
 }
 
 class RoundIconButton extends StatelessWidget {
-  final IconData? icon;
-  final Function? statePressed;
+  final IconData icon;
+  final Function statePressed;
 
   const RoundIconButton({required this.icon, required this.statePressed});
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
       onPressed: () {
-        statePressed!();
+        statePressed();
       },
       elevation: 6,
       child: Icon(icon, color: Colors.redAccent),
