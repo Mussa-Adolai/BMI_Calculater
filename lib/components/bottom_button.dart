@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:calculater_bmi/screens/result_page.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
