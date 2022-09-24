@@ -2,10 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'icon_content.dart';
-import 'reusable_card.dart';
-import 'constants.dart';
+import '../components/bottom_button.dart';
+import '../components/icon_content.dart';
+import '../reusable_card.dart';
+import '../components/constants.dart';
 import 'result_page.dart';
+import '../components/round_icon.dart';
 
 enum Gender {
   male,
@@ -50,7 +52,7 @@ class _InputpageState extends State<Inputpage> {
                     colour: genderSelected == Gender.male
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    cardChild: ReusableColumn(FontAwesomeIcons.mars, 'Male'),
+                    cardChild: IconContent(FontAwesomeIcons.mars, 'Male'),
                   ),
                 ),
                 Expanded(
@@ -63,7 +65,7 @@ class _InputpageState extends State<Inputpage> {
                     colour: genderSelected == Gender.femalel
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    cardChild: ReusableColumn(FontAwesomeIcons.venus, 'Female'),
+                    cardChild: IconContent(FontAwesomeIcons.venus, 'Female'),
                   ),
                 ),
               ],
@@ -71,7 +73,7 @@ class _InputpageState extends State<Inputpage> {
           ),
           Expanded(
             child: ReusableCard(
-              onPress: () {},
+              //onPress: () {},
               colour: kActiveCardColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -127,9 +129,9 @@ class _InputpageState extends State<Inputpage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    onPress: () {
-                      setState(() {});
-                    },
+                    // onPress: () {
+                    //   setState(() {});
+                    // },
                     colour: kActiveCardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -172,9 +174,9 @@ class _InputpageState extends State<Inputpage> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    onPress: () {
-                      setState(() {});
-                    },
+                    // onPress: () {
+                    //   setState(() {});
+                    // },
                     colour: kActiveCardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -218,7 +220,7 @@ class _InputpageState extends State<Inputpage> {
               ],
             ),
           ),
-          GestureDetector(
+          BottomButton(
             onTap: () {
               Navigator.push(
                 context,
@@ -229,46 +231,10 @@ class _InputpageState extends State<Inputpage> {
                 ),
               );
             },
-            child: Container(
-              color: kBottomContainerColor,
-              margin: EdgeInsets.only(top: 10.1),
-              width: double.infinity,
-              height: kBottomContainerHight,
-              child: Center(
-                child: Text(
-                  'CALCULATE',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                  ),
-                ),
-              ),
-            ),
+            buttonTitle: 'CALCULATOR',
           ),
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  final IconData icon;
-  final Function statePressed;
-
-  const RoundIconButton({required this.icon, required this.statePressed});
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: () {
-        statePressed();
-      },
-      elevation: 6,
-      child: Icon(icon, color: Colors.redAccent),
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
     );
   }
 }

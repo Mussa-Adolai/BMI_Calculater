@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'constants.dart';
 
-class ReusableColumn extends StatelessWidget {
-  ReusableColumn(this.icon, this.textCard);
+class IconContent extends StatelessWidget {
+  IconContent(this.icon, this.textCard);
   final IconData icon;
   final String textCard;
 
