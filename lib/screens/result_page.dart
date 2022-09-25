@@ -7,6 +7,14 @@ import '../components/constants.dart';
 import '../reusable_card.dart';
 
 class ResultPage extends StatelessWidget {
+  final String bmiResult;
+  final String resultText;
+  final String interpretatin;
+
+  const ResultPage(
+      {required this.bmiResult,
+      required this.resultText,
+      required this.interpretatin});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,15 +45,15 @@ class ResultPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'Normal',
+                    resultText.toUpperCase(), //   normal
                     style: kResultTextStyle,
                   ),
                   Text(
-                    '18.3',
+                    bmiResult, // number
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'You have a higher than normal body weight. Try to exercise more.',
+                    interpretatin,
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),

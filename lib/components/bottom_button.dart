@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'constants.dart';
@@ -7,8 +7,7 @@ class BottomButton extends StatelessWidget {
   final Function onTap;
   final String buttonTitle;
 
-  const BottomButton(
-      {super.key, required this.onTap, required this.buttonTitle});
+  BottomButton({required this.onTap, required this.buttonTitle});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

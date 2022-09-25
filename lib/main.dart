@@ -2,8 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'screens/input_page.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    //Only portrait Orientation
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const BMICalculater());
 }
 
